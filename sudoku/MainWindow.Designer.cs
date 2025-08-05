@@ -34,6 +34,7 @@ namespace sudoku
             btnSolve = new MaterialSkin.Controls.MaterialButton();
             btnLoad = new MaterialSkin.Controls.MaterialButton();
             btnSave = new MaterialSkin.Controls.MaterialButton();
+            btnClear = new MaterialSkin.Controls.MaterialButton();
             panelSpaceFOrGrid.SuspendLayout();
             SuspendLayout();
             // 
@@ -114,11 +115,32 @@ namespace sudoku
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSaveClick;
             // 
+            // btnClear
+            // 
+            btnClear.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnClear.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnClear.Depth = 0;
+            btnClear.HighEmphasis = true;
+            btnClear.Icon = null;
+            btnClear.Location = new Point(285, 602);
+            btnClear.Margin = new Padding(4, 6, 4, 6);
+            btnClear.MouseState = MaterialSkin.MouseState.HOVER;
+            btnClear.Name = "btnClear";
+            btnClear.NoAccentTextColor = Color.Empty;
+            btnClear.Size = new Size(66, 36);
+            btnClear.TabIndex = 5;
+            btnClear.Text = "CLEAR";
+            btnClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnClear.UseAccentColor = false;
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(587, 689);
+            Controls.Add(btnClear);
             Controls.Add(btnSave);
             Controls.Add(btnLoad);
             Controls.Add(btnSolve);
@@ -137,5 +159,6 @@ namespace sudoku
         private MaterialSkin.Controls.MaterialButton btnSolve;
         private MaterialSkin.Controls.MaterialButton btnLoad;
         private MaterialSkin.Controls.MaterialButton btnSave;
+        private MaterialSkin.Controls.MaterialButton btnClear;
     }
 }

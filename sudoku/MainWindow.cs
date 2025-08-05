@@ -17,7 +17,7 @@ namespace sudoku
         private IOpenDialog openDialog;
 
 
-        public MainWindow(ISudokuSolver sudokuSolver, ISudokuBoardConverter sudokuBoardConverter, 
+        public MainWindow(ISudokuSolver sudokuSolver, ISudokuBoardConverter sudokuBoardConverter,
             ISaveData saveData, IOpenDialog openDialog, ILoadData loadData)
         {
             InitializeComponent();
@@ -65,12 +65,12 @@ namespace sudoku
             {
                 for (int col = 0; col < 9; col++)
                 {
-                    if (viewModel.Cells[row ][col].IsInvalid)
+                    if (viewModel.Cells[row][col].IsInvalid)
                     {
                         MessageBox.Show("Please set corect number in board.");
                         return;
                     }
-                    
+
                 }
             }
             var boardToSolve = sudokuBoardConverter.ToArray(viewModel);
@@ -129,5 +129,18 @@ namespace sudoku
             }
         }
 
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            sudokuGrid.ResetPos();
+            for (int row = 0; row < 9; row++)
+            {
+                for (int col = 0; col < 9; col++)
+                {
+                    viewModel.Cells[row][ col].Value =  0;
+                    viewModel.Cells[row][col].IsInvalid = false;
+                }
+            }
+            sudokuGrid.Invalidate();
+        }
     }
 }
